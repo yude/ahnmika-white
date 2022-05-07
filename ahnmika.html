@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>白って???色あんねん</title>
+  <script>
+    let count = 0;
+    let white = Array(200).fill(200);
+
+    function ahnmicount() {
+      alert(`${count} 人のアンミカ`);
+    }
+
+    for (var i = 0; i < 200; i++) {
+      const incr = (j) => {
+        return () => {
+          white[j] = 100 + Math.floor(Math.random() * 901);
+          count++;
+        }
+      };
+      setInterval(incr(i), 1);
+    }
+
+    let area;
+    function show() {
+      if (area === undefined) {
+        area = document.getElementById('ahnmikarea');
+      }
+
+      let l = '';
+      white.forEach((a) => {
+        l += `白って${a}色あんねん\n`;
+      });
+      area.value = l;
+
+      document.title = `白って${white[0]}色あんねん`;
+    }
+    setInterval(show, 1);
+  </script>
+</head>
+
+<body>
+  <textarea id="ahnmikarea" name="ahnmikarea" style="height: 500px;"></textarea>
+  <br>
+  <input type="button" value="アンミカウント" id="ahnmicount" onclick="ahnmicount()">
+</body>
+</html>
