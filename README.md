@@ -3,7 +3,7 @@
 
 ## Docker
 ```shell
-docker run ghcr.io/yude/ahnmika-white:main
+docker run --it --rm ghcr.io/yude/ahnmika-white:main
 ```
 
 ## License
